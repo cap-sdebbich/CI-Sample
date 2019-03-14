@@ -1,0 +1,6 @@
+app_identifier("com.capgemini.cisample") # The bundle identifier of your app
+apple_id("safwen.debbichi@capgemini.com") # Your Apple email address
+
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
