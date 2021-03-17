@@ -40,10 +40,12 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         if: always()
-      - name: Coverage
-        uses: mattpolzin/swift-codecov-action@0.6.0
-        with:
-          MINIMUM_COVERAGE: 98
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
 
   # Coverage:
   #   runs-on: macos-latest
