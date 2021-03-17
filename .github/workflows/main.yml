@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: maxim-lobanov/setup-xcode@v1
         with:
-        xcode-version: '12.0'
+          xcode-version: '12.0'
       - uses: actions/checkout@v2
       - name: Run a one-line script
         run: echo Hello, world!
