@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '12.0'
+          xcode-version: '11.7'
       - uses: actions/checkout@v2
       - name: Build for test
         run: xcodebuild -workspace CI-Sample.xcworkspace -scheme CI-Sample-Dev test -destination "platform=iOS Simulator,name=iPhone 11" -derivedDataPath ./Build -enableCodeCoverage YES
