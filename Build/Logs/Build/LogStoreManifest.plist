@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>6872C7AD-AADC-44C9-90C4-1DD5C3A6C6FE</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>6872C7AD-AADC-44C9-90C4-1DD5C3A6C6FE.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CI-Sample project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CI-Sample-Dev</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Testing workspace CI-Sample with scheme CI-Sample-Dev</string>
+			<key>timeStartedRecording</key>
+			<real>637718060.347507</real>
+			<key>timeStoppedRecording</key>
+			<real>637718062.27712202</real>
+			<key>title</key>
+			<string>Testing workspace CI-Sample with scheme CI-Sample-Dev</string>
+			<key>uniqueIdentifier</key>
+			<string>6872C7AD-AADC-44C9-90C4-1DD5C3A6C6FE</string>
+		</dict>
+		<key>7DDDDC37-AAC4-4A7D-9373-2131C368A9ED</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>7DDDDC37-AAC4-4A7D-9373-2131C368A9ED.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CI-Sample project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CI-Sample-Dev</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Testing workspace CI-Sample with scheme CI-Sample-Dev</string>
+			<key>timeStartedRecording</key>
+			<real>637717803.89931595</real>
+			<key>timeStoppedRecording</key>
+			<real>637717881.89788795</real>
+			<key>title</key>
+			<string>Testing workspace CI-Sample with scheme CI-Sample-Dev</string>
+			<key>uniqueIdentifier</key>
+			<string>7DDDDC37-AAC4-4A7D-9373-2131C368A9ED</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

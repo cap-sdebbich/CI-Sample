@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
+options: "e8c95a49711b1a211db42078de7adf73"
+build_time: [1616025079, 988537000]
+inputs:
+  "/Users/safwendebbichi/workspace/CI-Sample/CI-SampleTests/CI_SampleTests.swift": [1616015235, 764077292]

@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
+options: "f49d1128076c3d7d4ee97c69b3ed44c1"
+build_time: [1616025023, 890871000]
+inputs:
+  "/Users/safwendebbichi/workspace/CI-Sample/CI-Sample/ViewController.swift": [1616020609, 774934985]
+  "/Users/safwendebbichi/workspace/CI-Sample/CI-Sample/AppDelegate.swift": [1616015235, 762916196]

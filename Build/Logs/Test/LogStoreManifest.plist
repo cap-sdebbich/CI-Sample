@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>09AAA1A3-9F88-4CFE-8F31-122389C4CB09</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>6872C7AD-AADC-44C9-90C4-1DD5C3A6C6FE</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.unit.cocoaUnitTest</string>
+			<key>fileName</key>
+			<string>Test-CI-Sample-Dev-2021.03.18_00-54-20-+0100.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasCoverageData</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CI-Sample project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CI-Sample-Dev</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Test CI-Sample-Dev</string>
+			<key>timeStartedRecording</key>
+			<real>637718060.35107505</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Test CI-Sample-Dev</string>
+			<key>uniqueIdentifier</key>
+			<string>09AAA1A3-9F88-4CFE-8F31-122389C4CB09</string>
+		</dict>
+		<key>193E5A8A-CCC5-4851-8764-0F56FF403B5A</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>7DDDDC37-AAC4-4A7D-9373-2131C368A9ED</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.unit.cocoaUnitTest</string>
+			<key>fileName</key>
+			<string>Test-CI-Sample-Dev-2021.03.18_00-50-03-+0100.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasCoverageData</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CI-Sample project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CI-Sample-Dev</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Test CI-Sample-Dev</string>
+			<key>timeStartedRecording</key>
+			<real>637717803.90278697</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Test CI-Sample-Dev</string>
+			<key>uniqueIdentifier</key>
+			<string>193E5A8A-CCC5-4851-8764-0F56FF403B5A</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

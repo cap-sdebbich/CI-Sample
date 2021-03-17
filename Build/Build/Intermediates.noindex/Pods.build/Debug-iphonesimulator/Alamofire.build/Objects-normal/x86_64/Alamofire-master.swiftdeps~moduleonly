@@ -1,0 +1,21 @@
+version: "Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
+options: "8f369cb17709856ca9562169484fab3f"
+build_time: [1616025008, 16552000]
+inputs:
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/AFError.swift": [1616015235, 799457508]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/Alamofire.swift": [1616015235, 799949086]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/DispatchQueue+Alamofire.swift": [1616015235, 800310733]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/MultipartFormData.swift": [1616015235, 800545706]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/NetworkReachabilityManager.swift": [1616015235, 800888112]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/Notifications.swift": [1616015235, 801207256]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/ParameterEncoding.swift": [1616015235, 801558853]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/Request.swift": [1616015235, 801978733]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/Response.swift": [1616015235, 802331662]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/ResponseSerialization.swift": [1616015235, 802730132]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/Result.swift": [1616015235, 803076751]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/ServerTrustPolicy.swift": [1616015235, 803488237]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/SessionDelegate.swift": [1616015235, 803960640]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/SessionManager.swift": [1616015235, 804601140]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/TaskDelegate.swift": [1616015235, 805115011]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/Timeline.swift": [1616015235, 805376247]
+  "/Users/safwendebbichi/workspace/CI-Sample/Pods/Alamofire/Source/Validation.swift": [1616015235, 805900322]
