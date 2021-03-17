@@ -12,21 +12,24 @@ jobs:
   Test:
     runs-on: macos-latest
     steps:
+      # Sets Xcode version to 11.7
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: '11.7'
       - uses: actions/checkout@v2
+      # Runs unit tests
       - name: Build for test
         run: xcodebuild -workspace CI-Sample.xcworkspace -scheme CI-Sample-Dev test -destination "platform=iOS Simulator,name=iPhone 11" -derivedDataPath ./Build -enableCodeCoverage YES
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      # Reports job status as a slack notification
       - name: Report Status
         uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          fields: message,commit,author,ref,workflow,job # selectable (default: repo,message)
+          fields: message,commit,author,ref,workflow,job
           custom_payload: |
             {
               attachments: [{
@@ -35,5 +38,13 @@ jobs:
               }]
             }
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }} # required
-        if: always() # Pick up events even if the job fails or is canceled.
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        if: always()
+      - name: Coverage
+        uses: mattpolzin/swift-codecov-action@0.6.0
+        with:
+          MINIMUM_COVERAGE: 98
+
+  # Coverage:
+  #   runs-on: macos-latest
+  #   steps:
