@@ -64,7 +64,7 @@ jobs:
             totalCoverage=$((sum / count))
             echo "total coverage ${totalCoverage}"
             echo "::set-output name=COVERAGE::${totalCoverage}"
-            if [ $totalCoverage -ge 50 ]
+            if [ $totalCoverage -ge 10 ]
             then
               echo "::set-output name=COVERAGE_STATUS::success"
             else
@@ -80,7 +80,3 @@ jobs:
           status: "${{ steps.coverage.outputs.COVERAGE_STATUS }}"
           description: "precentage: ${{ steps.coverage.outputs.COVERAGE }}%"
           name: "New Code Coverage"
-          addHoldComment: "true"
-          pendingComment: "action pending!"
-          successComment: "action success!"
-          failComment: "action failed!"
