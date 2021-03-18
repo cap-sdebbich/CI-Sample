@@ -52,8 +52,8 @@ jobs:
             then
               echo ""
             else
-              count=+1
-              sum=+${coverage}
+              count=count+1
+              sum=sum+coverage
             fi
           done
           echo "${count}"
