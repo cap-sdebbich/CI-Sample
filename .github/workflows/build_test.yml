@@ -50,8 +50,11 @@ jobs:
           count=0
           sum=0
           threshold=80
+          sourcePath=CI-Sample/
+          echo "SourcePath = ${sourcePath}"
           for changed_file in ${{ steps.files.outputs.all }}; do
-            coverage=$(python script.py ${changed_file} CI-Sample/)
+            coverage=$(python script.py ${changed_file} ${sourcePath})
+            echo "file: ${changed_file} , coverage: ${coverage}"
             if [ $coverage -lt -1 ]
             then
               echo ""
@@ -82,4 +85,3 @@ jobs:
           status: "${{ steps.coverage.outputs.COVERAGE_STATUS }}"
           description: ${{ steps.coverage.outputs.COVERAGE }}
           name: "New Code Coverage"
-          url: "${{ env.GITHUB_SERVER_URL }}/${{ env.GITHUB_REPOSITORY }}/actions/runs/${{ env.GITHUB_RUN_ID }}"
