@@ -43,8 +43,9 @@ jobs:
       - name: File Changes
         uses: jitterbit/get-changed-files@v1
       - run: |
-          echo ${{steps.files.outputs.added_modified}}
-          python script.py ${{ steps.files.outputs.all }}
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "${changed_file}"
+          done
 
   # Coverage:
   #   runs-on: macos-latest
