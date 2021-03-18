@@ -60,11 +60,12 @@ jobs:
           then
             totalCoverage=$((sum / count))
             echo "total coverage ${totalCoverage}"
-            export COVERAGE=43
+            # export COVERAGE=55
+            echo "::set-env name=COVERAGE::${totalCoverage}"
           fi
       - name: Set Coverage
         run: |
-         echo '${COVERAGE}'
+         echo ${COVERAGE}
          echo '::set-output name=TOTAL_COV::55'
         id: coverage
       - name: Set code coverage commit status
