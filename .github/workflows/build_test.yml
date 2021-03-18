@@ -64,5 +64,5 @@ jobs:
             totalCoverage=$((sum / count))
             echo "total coverage ${totalCoverage}"
           fi
-      - name: Set code coverage commit status
-        if: github.event_name == 'pull_request'
+      # - name: Set code coverage commit status
+      #   if: github.event_name == 'pull_request'
