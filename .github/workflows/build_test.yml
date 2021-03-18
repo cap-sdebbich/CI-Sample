@@ -73,4 +73,4 @@ jobs:
           context: 'Code coverage'
           description: ${{env.TOTALCOV}}
           state: 'success'
-          sha: ${{github.event.pull_request.head.sha || github.sha}}
+          sha: ${{env.TOTALCOV}}
