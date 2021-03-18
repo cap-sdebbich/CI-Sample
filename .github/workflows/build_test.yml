@@ -43,7 +43,7 @@ jobs:
       - name: File Changes
         uses: jitterbit/get-changed-files@v1
       - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{steps.files.outputs.added_modified}}; do
             echo "${changed_file}"
           done
 
