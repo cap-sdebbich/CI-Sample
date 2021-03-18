@@ -11,6 +11,8 @@ coverage = -100
 if sourcePath in filePath:
     for covered in coveredFiles:
         path = covered["path"]
+        print(path)
+        print(filePath)
         if filePath in path:
             coverage = covered["lineCoverage"] * 100
             break
