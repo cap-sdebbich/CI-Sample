@@ -40,7 +40,7 @@ jobs:
       #   env:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       #   if: always()
-      - name: coverage
+      - id: coverage
         if: github.event_name == 'pull_request'
         uses: jitterbit/get-changed-files@v1
       - run: |
