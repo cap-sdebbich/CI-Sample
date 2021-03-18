@@ -45,7 +45,8 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-      - run: |
+      - name: Check coverage
+        run: |
           count=0
           sum=0
           for changed_file in ${{ steps.files.outputs.all }}; do
@@ -65,7 +66,7 @@ jobs:
             # export COVERAGE=55
             echo "::set-env name=COVERAGE::${totalCoverage}"
           fi
-      id: coverage
+        id: coverage
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
         uses: ouzi-dev/commit-status-updater@v1.1.0
