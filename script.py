@@ -12,7 +12,7 @@ for covered in coveredFiles:
     path = covered["path"]
     print(path)
     print(filePath)
-    if path in filePath:
+    if filePath in path:
         coverage = covered["lineCoverage"] * 100
         print(coverage)
         break
