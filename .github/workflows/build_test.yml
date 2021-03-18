@@ -59,6 +59,7 @@ jobs:
           if [ $count -ge 1 ]
           then
             totalCoverage=$((sum / count))
+            echo '${totalCoverage}'
             echo '::set-output name=total_coverage::${totalCoverage}'
             if [ $coverage -lt 80 ]
             then

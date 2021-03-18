@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 //sqdsqqddd
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Overridqsdsqddsddsdpoint for customization after application launch.
+        // Overridqsdsqddsddsdqsdpoint for customization after application launch.
         return true
     }
 
