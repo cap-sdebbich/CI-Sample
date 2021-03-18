@@ -71,6 +71,6 @@ jobs:
         with:
           authToken: ${{secrets.GITHUB_TOKEN}}
           context: 'Code coverage'
-          description: '${{env.TOTALCOV}}'
+          description: ${{env.TOTALCOV}}
           state: 'success'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
