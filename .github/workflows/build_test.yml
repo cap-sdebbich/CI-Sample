@@ -66,5 +66,6 @@ jobs:
   Coverage:
     runs-on: macos-latest
     steps:
+      - name: cover
       - run: |
           echo "total coverage ${totalCoverage}"
