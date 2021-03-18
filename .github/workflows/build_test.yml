@@ -62,9 +62,11 @@ jobs:
       #       echo "total coverage ${totalCoverage}"
       #       export TOTALCOV=55
       #     fi
-      - name: Set code coverage commit status
+      - name: blabla
         if: github.event_name == 'pull_request'
         run: export TOTALCOV=55
+      - name: Set code coverage commit status
+        if: github.event_name == 'pull_request'
         uses: Sibz/github-status-action@v1
         with:
           authToken: ${{secrets.GITHUB_TOKEN}}
