@@ -41,6 +41,7 @@ jobs:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       #   if: always()
       - id: files
+        if: github.event_name == 'pull_request'
         uses: jitterbit/get-changed-files@v1
       - run: |
           count=0
@@ -62,10 +63,10 @@ jobs:
           fi
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
-
-  Coverage:
-    runs-on: macos-latest
-    steps:
-      - name: cover
-      - run: |
-          echo "total coverage ${totalCoverage}"
+        uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'Test run'
+          description: 'Passed'
+          state: 'success'
+          sha: ${{github.event.pull_request.head.sha || github.sha}}
