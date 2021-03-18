@@ -64,13 +64,24 @@ jobs:
             totalCoverage=$((sum / count))
             echo "total coverage ${totalCoverage}"
             echo "::set-output name=COVERAGE::${totalCoverage}"
+
+            if [ $totalCoverage -ge 80 ]
+            then
+              echo "::set-output name=COVERAGE_STATUS::'success'"
+            else
+              echo "::set-output name=COVERAGE_STATUS::'failure'"
+            fi
+
           fi
         id: coverage
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
         uses: ouzi-dev/commit-status-updater@v1.1.0
         with:
-          status: "error"
-          url: http://myurl.io/
+          status: "${{ steps.coverage.outputs.COVERAGE_STATUS }}"
           description: "precentage: ${{ steps.coverage.outputs.COVERAGE }}%"
           name: "New Code Coverage"
+          addHoldComment: "true"
+          pendingComment: "action pending!"
+          successComment: "action success!"
+          failComment: "action failed!"
