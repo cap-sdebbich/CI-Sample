@@ -58,7 +58,7 @@ jobs:
           done
           if [ $count -ge 1 ]
           then
-            totalCoverage=$sum/2
+            totalCoverage=$((sum / count))
             echo "${totalCoverage}"
           fi
 
