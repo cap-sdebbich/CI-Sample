@@ -44,7 +44,12 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
-            python script.py ${changed_file} CISample
+            coverage = $(python script.py ${changed_file} CISample)
+            if [ $coverage -lt -1 ]
+            then
+            else
+            echo "$coverage"
+            fi
           done
 
   # Coverage:
