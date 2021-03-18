@@ -18,34 +18,32 @@ jobs:
           xcode-version: '11.7'
       - uses: actions/checkout@v2
       # Runs unit tests
-      - name: Build for test
-        run: xcodebuild -workspace CI-Sample.xcworkspace -scheme CI-Sample-Dev test -destination "platform=iOS Simulator,name=iPhone 11" -derivedDataPath ./Build -enableCodeCoverage YES
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      # - name: Build for test
+      #   run: xcodebuild -workspace CI-Sample.xcworkspace -scheme CI-Sample-Dev test -destination "platform=iOS Simulator,name=iPhone 11" -derivedDataPath ./Build -enableCodeCoverage YES
+      # - name: Run a multi-line script
+      #   run: |
+      #     echo Add other actions to build,
+      #     echo test, and deploy your project.
       # Reports job status as a slack notification
-      - name: Report Status
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: message,commit,author,ref,workflow,job
-          custom_payload: |
-            {
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `${process.env.AS_WORKFLOW}\n${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}@${process.env.AS_REF} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`,
-              }]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-        if: always()
-      - id: files
+      # - name: Report Status
+      #   uses: 8398a7/action-slack@v3
+      #   with:
+      #     status: ${{ job.status }}
+      #     fields: message,commit,author,ref,workflow,job
+      #     custom_payload: |
+      #       {
+      #         attachments: [{
+      #           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+      #           text: `${process.env.AS_WORKFLOW}\n${process.env.AS_JOB} (${process.env.AS_COMMIT}) of ${process.env.AS_REPO}@${process.env.AS_REF} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`,
+      #         }]
+      #       }
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      #   if: always()
+      - name: File Changes
         uses: jitterbit/get-changed-files@v1
       - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
-          done
+          python script.py ${{ steps.files.outputs.all }}; CISample
 
   # Coverage:
   #   runs-on: macos-latest
