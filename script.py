@@ -14,7 +14,7 @@ if sourcePath in filePath:
             coverage = covered["lineCoverage"] * 100
             print(coverage)
             coverageFile.close()
-            quit()
+            sys.exit()
 
 print(-100)
 
