@@ -69,7 +69,7 @@ jobs:
               echo "::set-output name=COVERAGE::'precentage: ${totalCoverage}%'"
               echo "::set-output name=COVERAGE_STATUS::success"
             else
-              echo "::set-output name=COVERAGE::'precentage: ${totalCoverage}%, must be at least ${threshold}%'"
+              echo "::set-output name=COVERAGE::precentage: ${totalCoverage}%, must be at least ${threshold}%"
               echo "::set-output name=COVERAGE_STATUS::error"
             fi
 
@@ -82,3 +82,4 @@ jobs:
           status: "${{ steps.coverage.outputs.COVERAGE_STATUS }}"
           description: ${{ steps.coverage.outputs.COVERAGE }}
           name: "New Code Coverage"
+          url: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
