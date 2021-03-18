@@ -72,5 +72,5 @@ jobs:
         with:
           status: "error"
           url: http://myurl.io/
-          description: ${{ steps.coverage.outputs.COVERAGE }}
-          name: "name of my status check"
+          description: "precentage: ${{ steps.coverage.outputs.COVERAGE }}%"
+          name: "Code Coverage"
