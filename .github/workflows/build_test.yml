@@ -43,13 +43,14 @@ jobs:
       - id: files
         uses: jitterbit/get-changed-files@v1
       - run: |
-          count=0
+          count=1
           sum=0
           for changed_file in ${{ steps.files.outputs.all }}; do
             coverage=$(python script.py ${changed_file} CI-Sample/)
+            echo "${changed_file} coverage ${coverage}"
             if [ $coverage -lt -1 ]
             then
-              echo "${changed_file} not covered file"
+              echo ""
             else
               count=+1
               sum=+${coverage}
