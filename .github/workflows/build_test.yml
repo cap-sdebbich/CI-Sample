@@ -44,7 +44,7 @@ jobs:
         if: github.event_name == 'pull_request'
         uses: jitterbit/get-changed-files@v1
         env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true' 
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       - run: |
           count=0
           sum=0
@@ -65,11 +65,7 @@ jobs:
             # export COVERAGE=55
             echo "::set-env name=COVERAGE::${totalCoverage}"
           fi
-      - name: Set Coverage
-        run: |
-         echo ${COVERAGE}
-         echo '::set-output name=TOTAL_COV::55'
-        id: coverage
+      id: coverage
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
         uses: ouzi-dev/commit-status-updater@v1.1.0
