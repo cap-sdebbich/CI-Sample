@@ -2,7 +2,8 @@ import json
 import sys
 
 filesArray = sys.argv[1]
-sourcePath = sys.argv[2]
+print(filesArray)
+# sourcePath = sys.argv[2]
 coverageFile = open('coverage.json')
 coverageJson = json.load(coverageFile)
 
