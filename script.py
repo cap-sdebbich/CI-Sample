@@ -12,7 +12,8 @@ if sourcePath in filePath:
         path = covered["path"]
         if filePath in path:
             coverage = covered["lineCoverage"] * 100
-            sys.exit(coverage) 
+            coverageFile.close()
+            sys.exit(coverage)
 
 print(-100)
 
