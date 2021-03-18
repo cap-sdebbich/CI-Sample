@@ -64,13 +64,13 @@ jobs:
       #     fi
       - name: blabla
         if: github.event_name == 'pull_request'
-        run: env TOTALCOV=55
+        run: echo "::set-env name=TOTAL_COV::55"
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
         uses: Sibz/github-status-action@v1
         with:
           authToken: ${{secrets.GITHUB_TOKEN}}
           context: 'Code coverage'
-          description: ${{env.TOTALCOV}}
+          description: ${{env.TOTAL_COV}}
           state: 'success'
-          sha: ${{env.TOTALCOV}}
+          sha: ${{github.event.pull_request.head.sha || github.sha}}
