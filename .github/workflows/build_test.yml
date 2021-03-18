@@ -49,7 +49,7 @@ jobs:
         run: |
           count=0
           sum=0
-          threshold=20
+          threshold=80
           for changed_file in ${{ steps.files.outputs.all }}; do
             coverage=$(python script.py ${changed_file} CI-Sample/)
             if [ $coverage -lt -1 ]
