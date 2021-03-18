@@ -7,13 +7,13 @@ coverageFile = open('coverage.json')
 coverageJson = json.load(coverageFile)
 
 coveredFiles = coverageJson["targets"][0]["files"]
-coverage = -100.0
+coverage = -100
 if sourcePath in filePath:
     for covered in coveredFiles:
         path = covered["path"]
         if filePath in path:
-            coverage = covered["lineCoverage"] * 100.0
+            coverage = covered["lineCoverage"] * 100
             break
 
-print(coverage)
+print(int(coverage))
 coverageFile.close()
