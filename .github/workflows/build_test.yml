@@ -82,4 +82,4 @@ jobs:
           status: "${{ steps.coverage.outputs.COVERAGE_STATUS }}"
           description: ${{ steps.coverage.outputs.COVERAGE }}
           name: "New Code Coverage"
-          # url: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          url: "${{ env.GITHUB_SERVER_URL }}/${{ env.GITHUB_REPOSITORY }}/actions/runs/${{ env.GITHUB_RUN_ID }}"
