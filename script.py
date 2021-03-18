@@ -8,7 +8,7 @@ coverageJson = json.load(coverageFile)
 
 print(coverageJson["targets"][0]["files"])
 
-for file in filesArray
-    print file
+for file in filesArray:
+    print(file)
 
 coverageFile.close()
