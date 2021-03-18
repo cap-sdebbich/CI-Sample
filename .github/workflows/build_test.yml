@@ -45,6 +45,7 @@ jobs:
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
             coverage=$(python script.py ${changed_file} CISample)
+            echo "${coverage}"
             if [ $coverage -lt -1 ]
             then
             echo "${changed_file} not covered file"
