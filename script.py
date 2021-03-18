@@ -15,6 +15,6 @@ if sourcePath in filePath:
             print(coverage)
             break
 
-# print(-100)
+print(-100)
 
 coverageFile.close()
