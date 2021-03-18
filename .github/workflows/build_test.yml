@@ -67,8 +67,9 @@ jobs:
       #   env:
       #     ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       #     TOTAL_COV: 55
-      - run: echo ::set-output name=TOTAL_COV::55
-         id: coverage
+      - name: Set Coverage
+        run: echo '::set-output name=TOTAL_COV::55'
+        id: coverage
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
         uses: ouzi-dev/commit-status-updater@v1.1.0
