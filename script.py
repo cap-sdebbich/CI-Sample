@@ -1,15 +1,18 @@
 import json
 import sys
 
-filesArray = sys.argv[1]
-print(filesArray)
-# sourcePath = sys.argv[2]
+filePath = sys.argv[1]
+sourcePath = sys.argv[2]
 coverageFile = open('coverage.json')
 coverageJson = json.load(coverageFile)
 
-print(coverageJson["targets"][0]["files"])
+coveredFiles = coverageJson["targets"][0]["files"]
 
-for file in filesArray:
-    print(file)
+for covered in coveredFiles:
+    path = covered["path"]
+    if path in filePath:
+        coverage = covered["lineCoverage"] * 100
+        print(coverage)
+        break
 
 coverageFile.close()
