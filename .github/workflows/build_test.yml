@@ -52,7 +52,7 @@ jobs:
               echo "${changed_file} not covered file"
             else
               count=+1
-              sum=+($coverage)
+              sum=+${coverage}
             fi
           done
           echo "${count}"
