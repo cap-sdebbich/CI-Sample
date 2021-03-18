@@ -64,11 +64,10 @@ jobs:
       #     fi
       - name: blabla
         if: github.event_name == 'pull_request'
-        run: |
-          export TOTAL_COV=55
-          echo "${{env.TOTAL_COV}}"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+          TOTAL_COV: 55
+        run: echo "${{ env.TOTAL_COV }};"
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
         uses: Sibz/github-status-action@v1
