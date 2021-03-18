@@ -48,7 +48,7 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             coverage=$(python script.py ${changed_file} CI-Sample/)
             echo "${changed_file} coverage ${coverage}"
-            if [ $coverage -lt -1 ]
+            if [ $coverage -lt -1.0 ]
             then
               echo ""
             else
