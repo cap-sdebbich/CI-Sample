@@ -56,8 +56,11 @@ jobs:
               sum=$((sum+$coverage))
             fi
           done
-          echo "${count}"
-          echo "${sum}"
+          if [ $count -ge 1 ]
+          then
+            totalCoverage = sum/2
+            echo "${totalCoverage}"
+          fi
 
   # Coverage:
   #   runs-on: macos-latest
