@@ -70,10 +70,16 @@ jobs:
         run: echo "${{ env.TOTAL_COV }}"
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
-        uses: Sibz/github-status-action@v1
+        uses: ouzi-dev/commit-status-updater@v1.1.0
         with:
-          authToken: ${{secrets.GITHUB_TOKEN}}
-          context: 'Code coverage'
-          description: "coverage ${{ env.TOTAL_COV }}%"
-          state: 'success'
-          sha: ${{github.event.pull_request.head.sha || github.sha}}
+          status: "error"
+          url: http://myurl.io/
+          description: "this is my status ${{ env.TOTAL_COV }} check"
+          name: "name of my status check"
+        # uses: Sibz/github-status-action@v1
+        # with:
+        #   authToken: ${{secrets.GITHUB_TOKEN}}
+        #   context: 'Code coverage'
+        #   description: "coverage ${{ env.TOTAL_COV }}%"
+        #   state: 'success'
+        #   sha: ${{github.event.pull_request.head.sha || github.sha}}
