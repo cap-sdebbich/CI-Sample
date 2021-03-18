@@ -40,7 +40,7 @@ jobs:
       #   env:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       #   if: always()
-      - id: coverage
+      - name: coverage
         if: github.event_name == 'pull_request'
         uses: jitterbit/get-changed-files@v1
       - run: |
@@ -72,6 +72,7 @@ jobs:
       # - name: Set Coverage
       #   run: echo '::set-output name=TOTAL_COV::55'
       #   id: coverage
+        id: coverage
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
         uses: ouzi-dev/commit-status-updater@v1.1.0
