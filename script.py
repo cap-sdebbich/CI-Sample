@@ -15,6 +15,4 @@ if sourcePath in filePath:
             coverageFile.close()
             sys.exit(coverage)
 
-print(-100)
-
 coverageFile.close()
