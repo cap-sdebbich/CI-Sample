@@ -69,7 +69,7 @@ jobs:
             then
               echo "::set-output name=COVERAGE_STATUS::'success'"
             else
-              echo "::set-output name=COVERAGE_STATUS::'failure'"
+              echo "::set-output name=COVERAGE_STATUS::'error'"
             fi
 
           fi
