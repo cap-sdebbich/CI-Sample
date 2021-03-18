@@ -39,8 +39,8 @@ jobs:
       #       }
       #   env:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-      #   if: always()
-      - id: coverage
+        if: always()
+      - id: files
         if: github.event_name == 'pull_request'
         uses: jitterbit/get-changed-files@v1
       - run: |
@@ -48,8 +48,6 @@ jobs:
           sum=0
           for changed_file in ${{ steps.files.outputs.all }}; do
             coverage=$(python script.py ${changed_file} CI-Sample/)
-            echo "${changed_file}"
-            echo "${coverage}"
             if [ $coverage -lt -1 ]
             then
               echo ""
@@ -58,30 +56,19 @@ jobs:
               sum=$((sum+$coverage))
             fi
           done
-          echo ${count}
-          echo ${sum}
           if [ $count -ge 1 ]
           then
             totalCoverage=$((sum / count))
-            echo '${totalCoverage}'
-            echo '::set-output name=total_coverage::${totalCoverage}'
-            if [ $coverage -lt 80 ]
-            then
-              echo '::set-output name=status::"success"'
-            else
-              echo '::set-output name=status::"failure"'
-            fi
-          else
-            echo '::set-output name=status::"success"'
+            echo "total coverage ${totalCoverage}"
           fi
       # - name: Set Coverage
       #   run: echo '::set-output name=TOTAL_COV::55'
       #   id: coverage
-      - name: Set code coverage commit status
-        if: github.event_name == 'pull_request'
-        uses: ouzi-dev/commit-status-updater@v1.1.0
-        with:
-          status: "success"
-          url: http://myurl.io/
-          description: "Coverage percentage = ${{ steps.coverage.outputs.total_coverage }}%"
-          name: "name of my status check"
+      # - name: Set code coverage commit status
+      #   if: github.event_name == 'pull_request'
+      #   uses: ouzi-dev/commit-status-updater@v1.1.0
+      #   with:
+      #     status: "error"
+      #     url: http://myurl.io/
+      #     description: ${{ steps.coverage.outputs.TOTAL_COV }}
+      #     name: "name of my status check"
