@@ -10,11 +10,8 @@ coveredFiles = coverageJson["targets"][0]["files"]
 
 for covered in coveredFiles:
     path = covered["path"]
-    print(path)
-    print(filePath)
     if filePath in path:
         coverage = covered["lineCoverage"] * 100
-        print(coverage)
         break
 
 coverageFile.close()
