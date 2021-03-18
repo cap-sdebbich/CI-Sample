@@ -49,6 +49,7 @@ jobs:
         run: |
           count=0
           sum=0
+          threshold=20
           for changed_file in ${{ steps.files.outputs.all }}; do
             coverage=$(python script.py ${changed_file} CI-Sample/)
             if [ $coverage -lt -1 ]
@@ -63,11 +64,12 @@ jobs:
           then
             totalCoverage=$((sum / count))
             echo "total coverage ${totalCoverage}"
-            echo "::set-output name=COVERAGE::${totalCoverage}"
-            if [ $totalCoverage -ge 10 ]
+            if [ $totalCoverage -ge ${threshold} ]
             then
+              echo "::set-output name=COVERAGE::'precentage: ${totalCoverage}%'"
               echo "::set-output name=COVERAGE_STATUS::success"
             else
+              echo "::set-output name=COVERAGE::'precentage: ${totalCoverage}%, must be at least ${threshold}%'"
               echo "::set-output name=COVERAGE_STATUS::error"
             fi
 
