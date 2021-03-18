@@ -40,48 +40,43 @@ jobs:
       #   env:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       #   if: always()
-      # - id: files
-      #   if: github.event_name == 'pull_request'
-      #   uses: jitterbit/get-changed-files@v1
-      # - run: |
-      #     count=0
-      #     sum=0
-      #     for changed_file in ${{ steps.files.outputs.all }}; do
-      #       coverage=$(python script.py ${changed_file} CI-Sample/)
-      #       if [ $coverage -lt -1 ]
-      #       then
-      #         echo ""
-      #       else
-      #         count=$((count+1))
-      #         sum=$((sum+$coverage))
-      #       fi
-      #     done
-      #     if [ $count -ge 1 ]
-      #     then
-      #       totalCoverage=$((sum / count))
-      #       echo "total coverage ${totalCoverage}"
-      #       export TOTALCOV=55
-      #     fi
-      # - name: blabla
-      #   if: github.event_name == 'pull_request'
-      #   env:
-      #     ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-      #     TOTAL_COV: 55
-      - name: Set Coverage
-        run: echo '::set-output name=TOTAL_COV::55'
-        id: coverage
+      - id: coverage
+        if: github.event_name == 'pull_request'
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          count=0
+          sum=0
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            coverage=$(python script.py ${changed_file} CI-Sample/)
+            if [ $coverage -lt -1 ]
+            then
+              echo ""
+            else
+              count=$((count+1))
+              sum=$((sum+$coverage))
+            fi
+          done
+          if [ $count -ge 1 ]
+          then
+            totalCoverage=$((sum / count))
+            echo '::set-output name=total_coverage::${totalCoverage}'
+            if [ $coverage -lt 80 ]
+            then
+              echo '::set-output name=status::"success"'
+            else
+              echo '::set-output name=status::"failure"'
+            fi
+          else
+            echo '::set-output name=status::"success"'
+          fi
+      # - name: Set Coverage
+      #   run: echo '::set-output name=TOTAL_COV::55'
+      #   id: coverage
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
         uses: ouzi-dev/commit-status-updater@v1.1.0
         with:
-          status: "error"
+          status: "success"
           url: http://myurl.io/
-          description: ${{ steps.coverage.outputs.TOTAL_COV }}
+          description: "Coverage percentage = ${{ steps.coverage.outputs.total_coverage }}%"
           name: "name of my status check"
-        # uses: Sibz/github-status-action@v1
-        # with:
-        #   authToken: ${{secrets.GITHUB_TOKEN}}
-        #   context: 'Code coverage'
-        #   description: "coverage ${{ env.TOTAL_COV }}%"
-        #   state: 'success'
-        #   sha: ${{github.event.pull_request.head.sha || github.sha}}
