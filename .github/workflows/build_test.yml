@@ -65,7 +65,7 @@ jobs:
       - name: blabla
         if: github.event_name == 'pull_request'
         run: |
-          echo “::set-env name=TOTAL_COV::55”
+          export TOTAL_COV=55
           echo "${{env.TOTAL_COV}}"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
