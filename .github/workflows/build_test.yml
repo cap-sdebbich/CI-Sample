@@ -63,7 +63,7 @@ jobs:
           then
             totalCoverage=$((sum / count))
             echo "total coverage ${totalCoverage}"
-            echo "::set-output name=COVERAGE::55"
+            echo "::set-output name=COVERAGE::${totalCoverage}"
           fi
         id: coverage
       - name: Set code coverage commit status
@@ -73,4 +73,4 @@ jobs:
           status: "error"
           url: http://myurl.io/
           description: "precentage: ${{ steps.coverage.outputs.COVERAGE }}%"
-          name: "Code Coverage"
+          name: "New Code Coverage"
