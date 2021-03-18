@@ -40,7 +40,7 @@ jobs:
       #   env:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         if: always()
-      - id: coverage
+      - id: files
         if: github.event_name == 'pull_request'
         uses: jitterbit/get-changed-files@v1
       - run: |
@@ -71,5 +71,5 @@ jobs:
         with:
           status: "error"
           url: http://myurl.io/
-          description: ${{ steps.coverage.outputs.TOTAL_COV }}
+          description: ${{ steps.files.outputs.TOTAL_COV }}
           name: "name of my status check"
