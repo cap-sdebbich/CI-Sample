@@ -54,11 +54,11 @@ jobs:
           echo "SourcePath = ${sourcePath}"
           for changed_file in ${{ steps.files.outputs.all }}; do
             coverage=$(python script.py ${changed_file} ${sourcePath})
-            echo "file: ${changed_file} , coverage: ${coverage}"
             if [ $coverage -lt -1 ]
             then
               echo ""
             else
+              echo "file: ${changed_file} , coverage: ${coverage}"
               count=$((count+1))
               sum=$((sum+$coverage))
             fi
