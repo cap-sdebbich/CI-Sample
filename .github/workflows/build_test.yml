@@ -44,7 +44,7 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
-            python script.py ${changed_file}
+            python script.py ${changed_file} CISample
           done
 
   # Coverage:
