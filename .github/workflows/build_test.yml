@@ -74,7 +74,7 @@ jobs:
         with:
           status: "error"
           url: http://myurl.io/
-          description: "this is my status ${{ env.TOTAL_COV }} check"
+          description: "this is my status $env.TOTAL_COV check"
           name: "name of my status check"
         # uses: Sibz/github-status-action@v1
         # with:
