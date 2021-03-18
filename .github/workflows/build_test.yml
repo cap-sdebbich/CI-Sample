@@ -47,6 +47,7 @@ jobs:
             coverage = $(python script.py ${changed_file} CISample)
             if [ $coverage -lt -1 ]
             then
+            echo "$changed_file not covered file"
             else
             echo "$coverage"
             fi
