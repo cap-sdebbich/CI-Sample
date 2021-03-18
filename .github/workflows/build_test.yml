@@ -43,6 +43,8 @@ jobs:
       - id: files
         if: github.event_name == 'pull_request'
         uses: jitterbit/get-changed-files@v1
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true' 
       - run: |
           count=0
           sum=0
@@ -63,9 +65,6 @@ jobs:
             # export COVERAGE=55
             echo "::set-env name=COVERAGE::${totalCoverage}"
           fi
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-        COVERAGE: ${totalCoverage}    
       - name: Set Coverage
         run: |
          echo ${COVERAGE}
