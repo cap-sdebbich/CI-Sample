@@ -40,10 +40,6 @@ jobs:
       #   env:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
       #   if: always()
-
-  Coverage:
-    runs-on: macos-latest
-    steps:
       - id: files
         uses: jitterbit/get-changed-files@v1
       - run: |
@@ -64,5 +60,11 @@ jobs:
             totalCoverage=$((sum / count))
             echo "total coverage ${totalCoverage}"
           fi
-      # - name: Set code coverage commit status
-      #   if: github.event_name == 'pull_request'
+      - name: Set code coverage commit status
+        if: github.event_name == 'pull_request'
+
+  Coverage:
+    runs-on: macos-latest
+    steps:
+      - run: |
+          echo "total coverage ${totalCoverage}"
