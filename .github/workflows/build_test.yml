@@ -43,6 +43,7 @@ jobs:
       - name: File Changes
         uses: jitterbit/get-changed-files@v1
       - run: |
+          echo ${{ steps.files.outputs.all }}
           python script.py ${{ steps.files.outputs.all }}
 
   # Coverage:
