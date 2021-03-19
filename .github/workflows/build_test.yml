@@ -1,8 +1,6 @@
 name: Build & Test
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -17,14 +15,13 @@ jobs:
         with:
           xcode-version: '11.7'
       - uses: actions/checkout@v2
-      Runs unit tests
+      # Runs unit tests
       - name: Build for test
         run: xcodebuild -workspace CI-Sample.xcworkspace -scheme CI-Sample-Dev test -destination "platform=iOS Simulator,name=iPhone 11" -derivedDataPath ./Build -enableCodeCoverage YES
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-      Reports job status as a slack notification
+      # Extrats the Coverage report from the .xcresult file
+      - name: Extract Coverage Report
+        run:
+      # Reports job status as a slack notification
       - name: Report Status
         uses: 8398a7/action-slack@v3
         with:
@@ -40,11 +37,13 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         if: always()
+        # Gets the added and modified files list from the pullrequest
       - id: files
         if: github.event_name == 'pull_request'
         uses: jitterbit/get-changed-files@v1
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+        # Extracts the new lines code coverage
       - name: Check coverage
         run: |
           count=0
@@ -78,6 +77,7 @@ jobs:
 
           fi
         id: coverage
+        # Updates pullrequest status with coverage percentage
       - name: Set code coverage commit status
         if: github.event_name == 'pull_request'
         uses: ouzi-dev/commit-status-updater@v1.1.0
