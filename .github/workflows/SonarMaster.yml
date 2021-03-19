@@ -16,6 +16,6 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: e5b206f59c78440f11df3cceeefd05fe
           filename: shields.json
-          label: Hello
-          message: World
-          color: orange
+          label: Coverage
+          message: 80%
+          color: green
