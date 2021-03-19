@@ -39,49 +39,57 @@ jobs:
       #       }
       #   env:
       #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-        if: always()
-      - id: files
-        if: github.event_name == 'pull_request'
-        uses: jitterbit/get-changed-files@v1
+      #   if: always()
+      # - id: files
+      #   if: github.event_name == 'pull_request'
+      #   uses: jitterbit/get-changed-files@v1
+      #   env:
+      #     ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      # - name: Check coverage
+      #   run: |
+      #     count=0
+      #     sum=0
+      #     threshold=80
+      #     sourcePath=CI-Sample/
+      #     echo "SourcePath = ${sourcePath}"
+      #     for changed_file in ${{ steps.files.outputs.all }}; do
+      #       coverage=$(python script.py ${changed_file} ${sourcePath})
+      #       if [ $coverage -lt -1 ]
+      #       then
+      #         echo ""
+      #       else
+      #         echo "file: ${changed_file} , coverage: ${coverage}"
+      #         count=$((count+1))
+      #         sum=$((sum+$coverage))
+      #       fi
+      #     done
+      #     if [ $count -ge 1 ]
+      #     then
+      #       totalCoverage=$((sum / count))
+      #       echo "total coverage ${totalCoverage}"
+      #       if [ $totalCoverage -ge ${threshold} ]
+      #       then
+      #         echo "::set-output name=COVERAGE::'precentage: ${totalCoverage}%'"
+      #         echo "::set-output name=COVERAGE_STATUS::success"
+      #       else
+      #         echo "::set-output name=COVERAGE::precentage: ${totalCoverage}%, must be at least ${threshold}%"
+      #         echo "::set-output name=COVERAGE_STATUS::error"
+      #       fi
+      #
+      #     fi
+      #   id: coverage
+      # - name: Set code coverage commit status
+      #   if: github.event_name == 'pull_request'
+      #   uses: ouzi-dev/commit-status-updater@v1.1.0
+      #   with:
+      #     status: "${{ steps.coverage.outputs.COVERAGE_STATUS }}"
+      #     description: ${{ steps.coverage.outputs.COVERAGE }}
+      #     name: "New Code Coverage"
+      - name: Update GitHub Profile README
+        uses: theboi/github-update-readme@v1.0
         env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-      - name: Check coverage
-        run: |
-          count=0
-          sum=0
-          threshold=80
-          sourcePath=CI-Sample/
-          echo "SourcePath = ${sourcePath}"
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            coverage=$(python script.py ${changed_file} ${sourcePath})
-            if [ $coverage -lt -1 ]
-            then
-              echo ""
-            else
-              echo "file: ${changed_file} , coverage: ${coverage}"
-              count=$((count+1))
-              sum=$((sum+$coverage))
-            fi
-          done
-          if [ $count -ge 1 ]
-          then
-            totalCoverage=$((sum / count))
-            echo "total coverage ${totalCoverage}"
-            if [ $totalCoverage -ge ${threshold} ]
-            then
-              echo "::set-output name=COVERAGE::'precentage: ${totalCoverage}%'"
-              echo "::set-output name=COVERAGE_STATUS::success"
-            else
-              echo "::set-output name=COVERAGE::precentage: ${totalCoverage}%, must be at least ${threshold}%"
-              echo "::set-output name=COVERAGE_STATUS::error"
-            fi
-
-          fi
-        id: coverage
-      - name: Set code coverage commit status
-        if: github.event_name == 'pull_request'
-        uses: ouzi-dev/commit-status-updater@v1.1.0
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          status: "${{ steps.coverage.outputs.COVERAGE_STATUS }}"
-          description: ${{ steps.coverage.outputs.COVERAGE }}
-          name: "New Code Coverage"
+          header: "Hey, I'm Ryan! 👋"
+          subhead: "Currently a student in Singapore, passionate about creating all-things-tech to improve society."
+          footer: "**Learn more about me at [ryanthe.com](https://www.ryanthe.com)!**"
