@@ -10,9 +10,8 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-      - name: Create Coverage Badge
-         run: |
-          $(curl -X GET -u %user_name%:%user_password% https://ciq-quality.mpsa.com/api/measures/component\?componentId\=%project.sonar.component_id%\&metricKeys\=coverage | python3 -c "import sys, json; print(json.load(sys.stdin)['component']['measures'][0]['value'])")
+      # - name: Create Coverage Badge
+      #    run: $(curl -X GET -u %user_name%:%user_password% https://ciq-quality.mpsa.com/api/measures/component\?componentId\=%project.sonar.component_id%\&metricKeys\=coverage | python3 -c "import sys, json; print(json.load(sys.stdin)['component']['measures'][0]['value'])")
       - name: Create Coverage Badge
         uses: schneegans/dynamic-badges-action@v1.0.0
         with:
