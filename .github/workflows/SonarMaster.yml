@@ -2,7 +2,7 @@ name: Sonar Master
 
 on:
   push:
-    branches: [ test ]
+    branches: [ main ]
 
   workflow_dispatch:
 
