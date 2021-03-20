@@ -20,7 +20,7 @@ jobs:
         run: xcodebuild -workspace CI-Sample.xcworkspace -scheme CI-Sample-Dev test -destination "platform=iOS Simulator,name=iPhone 11" -derivedDataPath ./Build -enableCodeCoverage YES
       # Extrats the Coverage report from the .xcresult file
       - name: Extract Coverage Report
-        run:
+        run: xcrun xccov view --report --json ./Build/Logs/Test/*.xcresult > coverage.json
       # Reports job status as a slack notification
       - name: Report Status
         uses: 8398a7/action-slack@v3
