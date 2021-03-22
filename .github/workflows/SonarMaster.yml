@@ -10,14 +10,17 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-      # - name: Create Coverage Badge
-      #    run: $(curl -X GET -u %user_name%:%user_password% https://ciq-quality.mpsa.com/api/measures/component\?componentId\=%project.sonar.component_id%\&metricKeys\=coverage | python3 -c "import sys, json; print(json.load(sys.stdin)['component']['measures'][0]['value'])")
+      - name: Get coverage from Sonar
+         run: |
+           totalCoverage=$(curl -X GET -u ${{ secrets.SONAR_USERNAME }}:${{ secrets.SONAR_PASSWORD }} https://ciq-quality.mpsa.com/api/measures/component\?componentId\=${{ secrets.SONAR_COMPONENT_ID }}\&metricKeys\=coverage | python3 -c "import sys, json; print(json.load(sys.stdin)['component']['measures'][0]['value'])")
+           echo "::set-output name=COVERAGE::'${totalCoverage}%'"
+        id: coverage
       - name: Create Coverage Badge
         uses: schneegans/dynamic-badges-action@v1.0.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: e5b206f59c78440f11df3cceeefd05fe
           filename: shields.json
-          label: Coverage
-          message: 80%
+          label: Refacto Coverage
+          message: ${{ steps.coverage.outputs.COVERAGE }}
           color: green
