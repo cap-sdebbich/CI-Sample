@@ -15,7 +15,7 @@ jobs:
           threshold=80
           median=40
           color=success
-          totalCoverage=$(curl -X GET -u ${{ secrets.SONAR_USERNAME }}:${{ secrets.SONAR_PASSWORD }} https://ciq-quality.mpsa.com/api/measures/component\?componentId\=${{ secrets.SONAR_COMPONENT_ID_MASTER }}\&metricKeys\=coverage | python3 -c "import sys, json; print(json.load(sys.stdin)['component']['measures'][0]['value'])")
+          totalCoverage=$(curl -X GET -u ${{ secrets.SONAR_USERNAME }}:${{ secrets.SONAR_PASSWORD }} https://ciq-quality.mpsa.com/api/measures/component\?componentId\=${{ secrets.SONAR_COMPONENT_ID_MASTER }}\&metricKeys\=coverage | python3 -c "import sys, json; print(int(json.load(sys.stdin)['component']['measures'][0]['value']))")
           echo "::set-output name=COVERAGE::${totalCoverage}%"
           echo "master branch coverage : ${totalCoverage}"
           if [ $totalCoverage -ge ${threshold} ]
