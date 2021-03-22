@@ -1,4 +1,4 @@
-name: Sonar Main
+name: Sonar Refacto
 
 on:
   schedule:
