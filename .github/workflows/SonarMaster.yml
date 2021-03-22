@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Sonar Coverage:
+  Sonar_Coverage:
     runs-on: ubuntu-latest
     steps:
       - name: Get coverage from Sonar
