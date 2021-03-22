@@ -35,6 +35,6 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 320534fcd2e10cfec7445abada463969
           filename: shields_v2.json
-          label: Build Coverage
+          label: Refacto Coverage
           message: ${{ steps.coverage.outputs.COVERAGE }}
           color: ${{ steps.coverage.outputs.COVERAGE_COLOR }}
