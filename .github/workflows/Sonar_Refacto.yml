@@ -33,8 +33,8 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.0.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: e5b206f59c78440f11df3cceeefd05fe
-          filename: shields.json
+          gistID: 320534fcd2e10cfec7445abada463969
+          filename: shields_v2.json
           label: Build Coverage
           message: ${{ steps.coverage.outputs.COVERAGE }}
           color: ${{ steps.coverage.outputs.COVERAGE_COLOR }}
