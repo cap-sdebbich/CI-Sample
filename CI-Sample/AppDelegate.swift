@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 //sqdsqqddd
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // dsd df  sfsdfsssdqsdqsdqsdqcustomization after application launch.
+        // dsd df  sfsdfsssdqsdqsdqsdqsdqcustomization after application launch.
         return true
     }
 
