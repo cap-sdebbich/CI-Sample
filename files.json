@@ -1,37 +1,37 @@
 [
   {
-    "sha": "a2d89a2ca9c7f190f1532757413cb5bb86cef2c6",
+    "sha": "d2a0289423a0109ab990aaa2de4f737d87bb48de",
     "filename": "CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate",
     "status": "modified",
     "additions": 0,
     "deletions": 0,
     "changes": 0,
-    "blob_url": "https://github.com/cap-sdebbich/CI-Sample/blob/6eafc5453244381257067181fb99ffde42208462/CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate",
-    "raw_url": "https://github.com/cap-sdebbich/CI-Sample/raw/6eafc5453244381257067181fb99ffde42208462/CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate",
-    "contents_url": "https://api.github.com/repos/cap-sdebbich/CI-Sample/contents/CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate?ref=6eafc5453244381257067181fb99ffde42208462"
+    "blob_url": "https://github.com/cap-sdebbich/CI-Sample/blob/187c5a97f269941a1a042e71e7e290b92604729c/CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate",
+    "raw_url": "https://github.com/cap-sdebbich/CI-Sample/raw/187c5a97f269941a1a042e71e7e290b92604729c/CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate",
+    "contents_url": "https://api.github.com/repos/cap-sdebbich/CI-Sample/contents/CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate?ref=187c5a97f269941a1a042e71e7e290b92604729c"
   },
   {
-    "sha": "b173256260e3ee5e3284506b38e829cab0e59229",
-    "filename": "CI-Sample/AppDelegate.swift",
-    "status": "modified",
-    "additions": 1,
-    "deletions": 1,
-    "changes": 2,
-    "blob_url": "https://github.com/cap-sdebbich/CI-Sample/blob/6eafc5453244381257067181fb99ffde42208462/CI-Sample/AppDelegate.swift",
-    "raw_url": "https://github.com/cap-sdebbich/CI-Sample/raw/6eafc5453244381257067181fb99ffde42208462/CI-Sample/AppDelegate.swift",
-    "contents_url": "https://api.github.com/repos/cap-sdebbich/CI-Sample/contents/CI-Sample/AppDelegate.swift?ref=6eafc5453244381257067181fb99ffde42208462",
-    "patch": "@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {\n     var window: UIWindow?\n //sqdsqqddd\n     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {\n-        // dsd df  sfsdfsssdqsdqsdqsdqcustomization after application launch.\n+        // dsd df  sfsdfsssdqsdqsdqsdqsdqcustomization after application launch.\n         return true\n     }\n "
+    "sha": "88843906f7ca4050c0406bef9ce1fa8a8e71cd28",
+    "filename": "Coverage.py",
+    "status": "added",
+    "additions": 36,
+    "deletions": 0,
+    "changes": 36,
+    "blob_url": "https://github.com/cap-sdebbich/CI-Sample/blob/187c5a97f269941a1a042e71e7e290b92604729c/Coverage.py",
+    "raw_url": "https://github.com/cap-sdebbich/CI-Sample/raw/187c5a97f269941a1a042e71e7e290b92604729c/Coverage.py",
+    "contents_url": "https://api.github.com/repos/cap-sdebbich/CI-Sample/contents/Coverage.py?ref=187c5a97f269941a1a042e71e7e290b92604729c",
+    "patch": "@@ -0,0 +1,36 @@\n+import json\n+import sys\n+\n+file = open('files.json')\n+filesJson = json.load(file)\n+sourcePath = sys.argv[1]\n+threshold = sys.argv[2]\n+coverageFile = open('coverage.json')\n+coverageJson = json.load(coverageFile)\n+\n+filesArray=[]\n+for fileJson in filesJson:\n+    status = fileJson[\"status\"]\n+    if status == \"modified\" or status == \"added\":\n+        filename = fileJson[\"filename\"]\n+        if sourcePath in filename:\n+            filesArray.append(filename)\n+\n+count = 0\n+sum = 0\n+for filePath in filesArray:\n+  coveredFiles = coverageJson[\"targets\"][0][\"files\"]\n+  for covered in coveredFiles:\n+      path = covered[\"path\"]\n+      if filePath in path:\n+          count = count + 1\n+          sum = sum + (covered[\"lineCoverage\"] * 100)\n+\n+percentage = 100\n+if count != 0:\n+    percentage = sum/count\n+\n+print(\"{:.2f}\".format(percentage))\n+\n+file.close()\n+coverageFile.close()"
   },
   {
-    "sha": "88237b72c809dcea0f13875eafc9d42b36465887",
-    "filename": "CI-Sample/ViewController.swift",
-    "status": "modified",
-    "additions": 1,
-    "deletions": 1,
-    "changes": 2,
-    "blob_url": "https://github.com/cap-sdebbich/CI-Sample/blob/6eafc5453244381257067181fb99ffde42208462/CI-Sample/ViewController.swift",
-    "raw_url": "https://github.com/cap-sdebbich/CI-Sample/raw/6eafc5453244381257067181fb99ffde42208462/CI-Sample/ViewController.swift",
-    "contents_url": "https://api.github.com/repos/cap-sdebbich/CI-Sample/contents/CI-Sample/ViewController.swift?ref=6eafc5453244381257067181fb99ffde42208462",
-    "patch": "@@ -13,7 +13,7 @@ class ViewController: UIViewController {\n     override func viewDidLoad() {\n         super.viewDidLoad()\n         // Do any additional setup after loading the view, typically from a nib.\n-        // dsqsdssqd\n+        // dsqsdssqdsqd\n     }\n \n "
+    "sha": "c641c10027ce9d0165fd7bf17c4d039361fdd417",
+    "filename": "files.json",
+    "status": "added",
+    "additions": 37,
+    "deletions": 0,
+    "changes": 37,
+    "blob_url": "https://github.com/cap-sdebbich/CI-Sample/blob/187c5a97f269941a1a042e71e7e290b92604729c/files.json",
+    "raw_url": "https://github.com/cap-sdebbich/CI-Sample/raw/187c5a97f269941a1a042e71e7e290b92604729c/files.json",
+    "contents_url": "https://api.github.com/repos/cap-sdebbich/CI-Sample/contents/files.json?ref=187c5a97f269941a1a042e71e7e290b92604729c",
+    "patch": "@@ -0,0 +1,37 @@\n+[\n+  {\n+    \"sha\": \"a2d89a2ca9c7f190f1532757413cb5bb86cef2c6\",\n+    \"filename\": \"CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate\",\n+    \"status\": \"modified\",\n+    \"additions\": 0,\n+    \"deletions\": 0,\n+    \"changes\": 0,\n+    \"blob_url\": \"https://github.com/cap-sdebbich/CI-Sample/blob/6eafc5453244381257067181fb99ffde42208462/CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate\",\n+    \"raw_url\": \"https://github.com/cap-sdebbich/CI-Sample/raw/6eafc5453244381257067181fb99ffde42208462/CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate\",\n+    \"contents_url\": \"https://api.github.com/repos/cap-sdebbich/CI-Sample/contents/CI-Sample.xcworkspace/xcuserdata/safwendebbichi.xcuserdatad/UserInterfaceState.xcuserstate?ref=6eafc5453244381257067181fb99ffde42208462\"\n+  },\n+  {\n+    \"sha\": \"b173256260e3ee5e3284506b38e829cab0e59229\",\n+    \"filename\": \"CI-Sample/AppDelegate.swift\",\n+    \"status\": \"modified\",\n+    \"additions\": 1,\n+    \"deletions\": 1,\n+    \"changes\": 2,\n+    \"blob_url\": \"https://github.com/cap-sdebbich/CI-Sample/blob/6eafc5453244381257067181fb99ffde42208462/CI-Sample/AppDelegate.swift\",\n+    \"raw_url\": \"https://github.com/cap-sdebbich/CI-Sample/raw/6eafc5453244381257067181fb99ffde42208462/CI-Sample/AppDelegate.swift\",\n+    \"contents_url\": \"https://api.github.com/repos/cap-sdebbich/CI-Sample/contents/CI-Sample/AppDelegate.swift?ref=6eafc5453244381257067181fb99ffde42208462\",\n+    \"patch\": \"@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {\\n     var window: UIWindow?\\n //sqdsqqddd\\n     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {\\n-        // dsd df  sfsdfsssdqsdqsdqsdqcustomization after application launch.\\n+        // dsd df  sfsdfsssdqsdqsdqsdqsdqcustomization after application launch.\\n         return true\\n     }\\n \"\n+  },\n+  {\n+    \"sha\": \"88237b72c809dcea0f13875eafc9d42b36465887\",\n+    \"filename\": \"CI-Sample/ViewController.swift\",\n+    \"status\": \"modified\",\n+    \"additions\": 1,\n+    \"deletions\": 1,\n+    \"changes\": 2,\n+    \"blob_url\": \"https://github.com/cap-sdebbich/CI-Sample/blob/6eafc5453244381257067181fb99ffde42208462/CI-Sample/ViewController.swift\",\n+    \"raw_url\": \"https://github.com/cap-sdebbich/CI-Sample/raw/6eafc5453244381257067181fb99ffde42208462/CI-Sample/ViewController.swift\",\n+    \"contents_url\": \"https://api.github.com/repos/cap-sdebbich/CI-Sample/contents/CI-Sample/ViewController.swift?ref=6eafc5453244381257067181fb99ffde42208462\",\n+    \"patch\": \"@@ -13,7 +13,7 @@ class ViewController: UIViewController {\\n     override func viewDidLoad() {\\n         super.viewDidLoad()\\n         // Do any additional setup after loading the view, typically from a nib.\\n-        // dsqsdssqd\\n+        // dsqsdssqdsqd\\n     }\\n \\n \"\n+  }\n+]"
   }
 ]
