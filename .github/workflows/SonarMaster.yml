@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get coverage from Sonar
-         run: |
-           totalCoverage=$(curl -X GET -u ${{ secrets.SONAR_USERNAME }}:${{ secrets.SONAR_PASSWORD }} https://ciq-quality.mpsa.com/api/measures/component\?componentId\=${{ secrets.SONAR_COMPONENT_ID }}\&metricKeys\=coverage | python3 -c "import sys, json; print(json.load(sys.stdin)['component']['measures'][0]['value'])")
-           echo "::set-output name=COVERAGE::'${totalCoverage}%'"
+        run: |
+          totalCoverage=$(curl -X GET -u ${{ secrets.SONAR_USERNAME }}:${{ secrets.SONAR_PASSWORD }} https://ciq-quality.mpsa.com/api/measures/component\?componentId\=${{ secrets.SONAR_COMPONENT_ID }}\&metricKeys\=coverage | python3 -c "import sys, json; print(json.load(sys.stdin)['component']['measures'][0]['value'])")
+          echo "::set-output name=COVERAGE::'${totalCoverage}%'"
         id: coverage
       - name: Create Coverage Badge
         uses: schneegans/dynamic-badges-action@v1.0.0
